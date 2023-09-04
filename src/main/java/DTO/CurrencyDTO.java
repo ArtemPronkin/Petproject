@@ -17,7 +17,7 @@ public class CurrencyDTO {
         this.id = dao.getId();
         this.name = dao.getFullname();
         this.code = dao.getCode();
-        this.sign = dao.getCode();
+        this.sign = dao.getSign();
     }
     public static List<CurrencyDTO> DAOtoDTO(List<CurrencyDAO> listDAO){
         List<CurrencyDTO> listDTO = new ArrayList<>();

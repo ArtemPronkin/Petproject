@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class Validator {
         public static boolean isExchangeRatesCodeValid(String bcode , String tcode , String rate){
-            return !(bcode == null || tcode == null || rate == null ||
-                    tcode.length()!=3 || bcode.length()!=3);
+            return !(bcode == null && tcode == null && rate == null &&
+                    tcode.length()!=3 && bcode.length()!=3);
         }
         public static boolean isCodeValid(String code) {
             if (code == null) return false;
@@ -21,8 +21,13 @@ public class Validator {
 
             return matcher.matches() && !code.substring(0, 3).equals(code.substring(3));
         }
-    public static boolean isCurrenciescodeValid(String name , String code , String sign){
-        return name != null || isCodeValid(code) || sign != null;
-
+    public static boolean isCurrenciescodeValid(String name , String code , String sign) {
+        if (name == null && isCodeValid(code) && sign == null) {
+            return false;
+        }
+        if (name.length() == 0 || sign.length() == 0) {
+            return false;
+        }
+        else return true;
     }
 }

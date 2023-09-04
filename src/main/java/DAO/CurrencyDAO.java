@@ -47,14 +47,14 @@ public class CurrencyDAO {
 
     public static void create(String name, String code, String sign) throws SQLException {
 
-        String sql = "INSERT INTO Currencies (Code, FullName, Sign) VALUES (?,?,?);";
+        String sql = "INSERT INTO Currencies (Code, FullName, Sign) VALUES ( ? , ? , ? );";
 
         try (var con = ConnectManager.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, code);
             ps.setString(2, name);
             ps.setString(3, sign);
-            ps.executeUpdate();
+            ps.execute();
         }
     }
     public static List<CurrencyDAO> readAll () throws SQLException {
