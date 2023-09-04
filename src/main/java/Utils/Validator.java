@@ -9,7 +9,8 @@ public class Validator {
                     tcode.length()!=3 && bcode.length()!=3);
         }
         public static boolean isCodeValid(String code) {
-            if (code == null) return false;
+            if (code.length()!=3) return false;
+
             return code.matches("[A-Z]{3}");
         }
 
@@ -22,7 +23,7 @@ public class Validator {
             return matcher.matches() && !code.substring(0, 3).equals(code.substring(3));
         }
     public static boolean isCurrenciescodeValid(String name , String code , String sign) {
-        if (name == null && isCodeValid(code) && sign == null) {
+        if (    name == null || !isCodeValid(code) || sign == null) {
             return false;
         }
         if (name.length() == 0 || sign.length() == 0) {
