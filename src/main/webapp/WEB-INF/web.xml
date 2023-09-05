@@ -14,15 +14,24 @@
         <url-pattern>*</url-pattern>
     </filter-mapping>
 
+    <servlet>
+        <servlet-name>ExchangeRate</servlet-name>
+        <servlet-class>Servlet.ExchangeRate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExchangeRate</servlet-name>
+        <url-pattern>/exchangeRate/*</url-pattern>
+    </servlet-mapping>
+
 
 
     <servlet>
-        <servlet-name>ExchangeRatesSpecific</servlet-name>
-        <servlet-class>Servlet.ExchangeRatesSpecific</servlet-class>
+        <servlet-name>ExchangeRates</servlet-name>
+        <servlet-class>Servlet.ExchangeRates</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ExchangeRatesSpecific</servlet-name>
-        <url-pattern>/exchangeRate/*</url-pattern>
+        <servlet-name>ExchangeRates</servlet-name>
+        <url-pattern>/exchangeRates/*</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Currency</servlet-name>

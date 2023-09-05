@@ -37,7 +37,10 @@ public class Currencies extends AbstractServlet {
         }
         try {
             CurrencyDAO.create(name, code, sign);
-            response.sendRedirect("/currency/"+code);
+            var currencyDao = CurrencyDAO.read(code);
+            String json = objectMapper.writeValueAsString(new CurrencyDTO(currencyDao.get()));
+            response.getWriter().write(json);
+            response.setStatus(200);
         } catch (SQLException ex) {
             if (ex.getErrorCode()==19){
                 throw new ExceptionError("Currency already exists", 409);
